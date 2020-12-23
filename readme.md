@@ -12,6 +12,10 @@ This package contains a Nova select field that can update field values inline fr
 ![screenshot of the inline select field](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/pending.png)
 ![screenshot of the inline select field ready for submitting](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/approved.png)
 
+## Custom feature
+
+Confirm modal feature added.
+
 ## Requirements
 
 This Nova field requires Nova 1.0 or higher.
