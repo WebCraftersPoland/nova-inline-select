@@ -15,15 +15,19 @@
                     {{ __('Choose an option') }}
                 </option>
             </select-control>
-
             <button
                 class="btn btn-default btn-primary flex items-center justify-center px-3 ml-2"
                 :title="__('Update')"
                 v-if="showUpdateButton"
-                @click="submit">
+                @click="modalVisible = true">
 
                 <icon type="play" class="text-white" style="margin-left: 7px"/>
             </button>
+            <confirm-modal 
+                v-if="modalVisible"
+                @close-modal="modalVisible = false"
+                @submit="confirm()"
+            />
         </template>
 
         <template v-else>
@@ -42,6 +46,12 @@
 
         props: ['resourceName', 'field'],
 
+        data() {
+            return {
+                modalVisible: false
+            }
+        },
+
         computed: {
             resourceId() {
                 return this.$parent.resource.id.value;
@@ -55,6 +65,10 @@
                 }
 
                 this.showUpdateButton = true;
+            },
+            confirm() {
+                this.submit();
+                this.modalVisible = false;
             }
         }
     }
